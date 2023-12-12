@@ -1,5 +1,6 @@
 package baseball.view
 
+import FINISH_GAME_MESSAGE
 import START_GAME_MESSAGE
 
 class OutputView {
@@ -10,6 +11,7 @@ class OutputView {
     fun printBallStrike(ball: Int, strike: Int) {
         if (strike == 3) {
             println("3스트라이크")
+            println(FINISH_GAME_MESSAGE)
         } else if (strike == 0 && ball != 0) {
             println("${ball}볼")
         } else if (ball == 0 && strike != 0) {

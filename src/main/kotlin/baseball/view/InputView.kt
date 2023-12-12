@@ -1,6 +1,7 @@
 package baseball.view
 
 import INPUT_PREDICTION_NUMBER
+import RESTART_GAME_MESSAGE
 import camp.nextstep.edu.missionutils.Console
 
 class InputView {
@@ -9,5 +10,12 @@ class InputView {
         val predictionNumber = Console.readLine()
 
         return predictionNumber
+    }
+
+    fun printRestart(): String {
+        print(RESTART_GAME_MESSAGE)
+        val restart = Console.readLine()
+
+        return restart
     }
 }

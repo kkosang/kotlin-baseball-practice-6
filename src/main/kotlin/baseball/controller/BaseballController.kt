@@ -21,6 +21,8 @@ class BaseballController {
             isGameFinish = result.third
             outputView.printBallStrike(result.first, result.second)
         }
+
+        val restart = inputView.printRestart()
     }
 
     fun inputPredictionNumber(): String {
