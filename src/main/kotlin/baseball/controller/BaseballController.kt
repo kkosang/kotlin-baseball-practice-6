@@ -12,9 +12,14 @@ class BaseballController {
 
     fun gameStart() {
         outputView.printStartMessage()
-        val predictionNumber = inputPredictionNumber()
-        val computerNumber = generateComputerNumber()
-        val result = CountBallStrike(predictionNumber, computerNumber).count()
+
+        var isGameFinish = false
+        while (!isGameFinish) {
+            val predictionNumber = inputPredictionNumber()
+            val computerNumber = generateComputerNumber()
+            val result = CountBallStrike(predictionNumber, computerNumber).count()
+            isGameFinish = result.third
+        }
     }
 
     fun inputPredictionNumber(): String {
