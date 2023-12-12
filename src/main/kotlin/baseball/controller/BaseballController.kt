@@ -1,6 +1,7 @@
 package baseball.controller
 
 import baseball.domain.ComputerNumber
+import baseball.domain.CountBallStrike
 import baseball.domain.PredictionNumber
 import baseball.view.InputView
 import baseball.view.OutputView
@@ -13,14 +14,14 @@ class BaseballController {
         outputView.printStartMessage()
         val predictionNumber = inputPredictionNumber()
         val computerNumber = generateComputerNumber()
+        val result = CountBallStrike(predictionNumber, computerNumber).count()
     }
 
-    fun inputPredictionNumber(): Int {
+    fun inputPredictionNumber(): String {
         val input = inputView.printPredictionNumber()
-        val predictionNumber = PredictionNumber(input)
-        predictionNumber.validate()
+        PredictionNumber(input).validate()
 
-        return predictionNumber.toInt()
+        return input
     }
 
     fun generateComputerNumber(): String {
