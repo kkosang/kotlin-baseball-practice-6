@@ -5,6 +5,7 @@ class PredictionNumber(private val number: String) {
         isLengthThree()
         isNumeric()
         isInRange()
+        isDuplicate()
     }
 
     private fun isLengthThree() {
@@ -26,6 +27,14 @@ class PredictionNumber(private val number: String) {
             if (digit !in 1..9) {
                 callException()
             }
+        }
+    }
+
+    private fun isDuplicate() {
+        val unique = number.toSet()
+
+        if (unique.size != number.length) {
+            callException()
         }
     }
 
