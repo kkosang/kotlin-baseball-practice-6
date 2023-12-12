@@ -3,6 +3,7 @@ package baseball.controller
 import baseball.domain.ComputerNumber
 import baseball.domain.CountBallStrike
 import baseball.domain.PredictionNumber
+import baseball.domain.Restart
 import baseball.view.InputView
 import baseball.view.OutputView
 
@@ -23,6 +24,9 @@ class BaseballController {
         }
 
         val restart = inputView.printRestart()
+        val validateRestart = Restart(restart).validateRestart()
+        if (validateRestart == 1)
+            gameStart()
     }
 
     fun inputPredictionNumber(): String {

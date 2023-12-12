@@ -13,7 +13,7 @@ class InputView {
     }
 
     fun printRestart(): String {
-        print(RESTART_GAME_MESSAGE)
+        println(RESTART_GAME_MESSAGE)
         val restart = Console.readLine()
 
         return restart
