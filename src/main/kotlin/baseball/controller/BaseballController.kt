@@ -1,5 +1,6 @@
 package baseball.controller
 
+import baseball.domain.ComputerNumber
 import baseball.domain.PredictionNumber
 import baseball.view.InputView
 import baseball.view.OutputView
@@ -10,13 +11,21 @@ class BaseballController {
 
     fun gameStart() {
         outputView.printStartMessage()
-        inputPredictionNumber()
+        val predictionNumber = inputPredictionNumber()
+        val computerNumber = generateComputerNumber()
     }
 
-    fun inputPredictionNumber() {
+    fun inputPredictionNumber(): Int {
         val input = inputView.printPredictionNumber()
-        var predictionNumber = PredictionNumber(input)
-
+        val predictionNumber = PredictionNumber(input)
         predictionNumber.validate()
+
+        return predictionNumber.toInt()
+    }
+
+    fun generateComputerNumber(): String {
+        val computerNumber = ComputerNumber().generateRandomNumber()
+
+        return computerNumber
     }
 }
