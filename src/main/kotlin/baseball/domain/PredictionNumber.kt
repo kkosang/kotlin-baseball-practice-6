@@ -4,6 +4,7 @@ class PredictionNumber(private val number: String) {
     fun validate() {
         isLengthThree()
         isNumeric()
+        isInRange()
     }
 
     private fun isLengthThree() {
@@ -16,6 +17,15 @@ class PredictionNumber(private val number: String) {
         val num = number.toIntOrNull()
         if (num == null) {
             callException()
+        }
+    }
+
+    private fun isInRange() {
+        for (num in number) {
+            val digit = num.toString().toInt()
+            if (digit !in 1..9) {
+                callException()
+            }
         }
     }
 
