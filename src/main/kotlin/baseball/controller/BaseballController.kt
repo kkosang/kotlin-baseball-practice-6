@@ -1,5 +1,6 @@
 package baseball.controller
 
+import baseball.domain.PredictionNumber
 import baseball.view.InputView
 import baseball.view.OutputView
 
@@ -14,6 +15,8 @@ class BaseballController {
 
     fun inputPredictionNumber() {
         val input = inputView.printPredictionNumber()
-        
+        var predictionNumber = PredictionNumber(input)
+
+        predictionNumber.validate()
     }
 }
